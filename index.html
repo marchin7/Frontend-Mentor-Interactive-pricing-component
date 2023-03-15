@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="index.js" defer></script>
+
+</head>
+<body>
+  <main class="main-wrapper">
+    <div class="header">
+      <h1>Simple, traffic-based pricing</h1>
+      <p class="Introductory-Paragraph">Sign-up for our 30-day trial. No credit card required.</p>
+    </div>
+    <form class="content">
+      <div class="grid">
+        <div class="grid-one">
+          <p class="pageviews-paragraph"><span id="pageviews">100k</span>Pageviews</p> 
+        </div>
+        <div class="grid-two">
+          <label class="sr-only"></label>
+          <input type="range" name="slider" class="slider" value="3" min="1" max="5">
+        </div>
+        <div class="grid-three">
+          <p class="price-paragraph"><span class="price" id="price">$16.00</span> / month</p>
+        </div>
+      </div>
+      <div class="toggle-switch-container">
+        <label class="label-monthly" for="toggle-switch">Monthly Billing</label>
+        <input class="toggle-switch" id="toggle-switch" name="toggle-switch" type="range" value="0" min="0" max="1">
+        <label class="label-yearly" for="toggle-switch">Yearly Billing</label>
+      </div>
+      <div class="idk">
+        <div class="ul-container">
+          <ul>
+            <li><img src="images/icon-check.svg" alt="" aria-hidden="true">Unlimited websites</li>
+            <li><img src="images/icon-check.svg" alt="" aria-hidden="true">100% data ownership</li>
+            <li><img src="images/icon-check.svg" alt="" aria-hidden="true">Email reports</li>
+          </ul>
+        </div>
+        <div>
+          <button class="start-my-trial-btn" type="submit">
+            <a href="#">Start my trial</a>
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+
+
+
+
+
+<!--
+
+  Simple, traffic-based pricing
+  
+  Sign-up for our 30-day trial. No credit card required.
+
+  Pageviews
+  $ /month
+
+  Monthly Billing
+  Yearly Billing 25% discount
+
+  Unlimited websites
+  100% data ownership
+  Email reports
+
+  Start my trial
+
+-->
+  
+</body>
+</html>

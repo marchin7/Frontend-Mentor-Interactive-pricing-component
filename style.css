@@ -56,6 +56,17 @@ h6 {
     --progres-bar: 50%;
 }
 
+.sr-only {
+    position: absolute !important;
+    width: 0.0625rem !important;
+    height: 0.0625rem !important;
+    padding: 0 !important;
+    margin: -0.0625rem !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
 body {
     font-family: Manrope, sans-serif;
     font-size: 0.75rem;
@@ -208,9 +219,9 @@ h1 {
 .content {
     background-color: var(--clr-White);
     border-radius: 0.625rem;
-    -webkit-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
-    -moz-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
-    box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
+    -webkit-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.2);
+    -moz-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.2);
+    box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.2);
 }
 
 .toggle-switch-container {
@@ -460,7 +471,6 @@ a {
 }
 
 @media screen and (max-width: 20.625rem) {
-
     .slider {
         width: 15rem;
     }
@@ -469,7 +479,4 @@ a {
         justify-content: stretch;
         margin-left: 0.5rem;
     }
-
 }
-
-

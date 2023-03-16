@@ -198,14 +198,6 @@ h1 {
     cursor: pointer;
 }
 
-.toggle-switch:hover.toggle-switch::-webkit-slider-thumb {
-    border-color: var(--clr-Cyan);
-}
-
-.toggle-switch:hover.toggle-switch::-moz-range-thumb {
-    border-color: var(--clr-Cyan);
-}
-
 .slider::-webkit-slider-thumb:active {
     background-color: rgb(65, 190, 178);
     cursor: grabbing;
@@ -246,7 +238,6 @@ h1 {
 .toggle-switch {
     margin-left: 0.625rem;
     margin-right: 0.625rem;
-
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -429,7 +420,7 @@ a {
         margin: 0rem 1.0625rem;
     }
 
-    .toggle-switch:hover {
+    .toggle-switch:hover {                                                   
         background-color: var(--clr-Cyan);
     }
 

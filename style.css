@@ -40,25 +40,25 @@ h6 {
 }
 
 :root {
-    --clr-Soft-Cyan: hsl(174, 77%, 80%);
+    --clr-Soft-Cyan: rgb(165, 243, 235);
     --clr-Strong-Cyan: rgb(16, 213, 194);
-    --clr-Light-Grayish-Red: hsl(14, 92%, 95%);
-    --clr-Light-Red: hsl(15, 100%, 70%);
-    --clr-Pale-Blue: hsl(226, 100%, 87%);
+    --clr-Cyan: rgb(95, 236, 222);
+    --clr-Light-Grayish-Red: rgb(254, 236, 231);
+    --clr-Light-Red: rgb(255, 140, 102);
+    --clr-Pale-Blue: rgb(189, 204, 255);
 
-    --clr-White: hsl(0, 0%, 100%);
-    --clr-Very-Pale-Blue: hsl(230, 100%, 99%);
-    --clr-Lighter-Grayish-Blue: hsl(224, 65%, 95%);
-    --clr-Light-Grayish-Blue: hsl(223, 50%, 87%);
-    --clr-Grayish-Blue: hsl(225, 20%, 60%);
+    --clr-White: rgb(255, 255, 255);
+    --clr-Very-Pale-Blue: rgb(250, 251, 255);
+    --clr-Lighter-Grayish-Blue: rgb(234, 238, 251);
+    --clr-Light-Grayish-Blue: rgb(205, 215, 238);
+    --clr-Grayish-Blue: rgb(133, 143, 173);
     --clr-Dark-Desaturated-Blue: rgb(41, 51, 86);
-
     --progres-bar: 50%;
 }
 
 body {
     font-family: Manrope, sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--clr-Grayish-Blue);
     min-height: 100vh;
     display: flex;
@@ -70,11 +70,11 @@ body {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: center;
     font-weight: 800;
     color: var(--clr-Dark-Desaturated-Blue);
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .header {
@@ -85,47 +85,47 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 65px 0px;
+    padding: 4.0625rem 0rem;
 }
 
 .Introductory-Paragraph {
-    font-size: 13px;
+    font-size: 0.8125rem;
     text-align: center;
-    max-width: 180px;
+    max-width: 11.25rem;
     color: var(--clr-Grayish-Blue);
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 8px;
-    padding: 16px 0px;
+    row-gap: 0.5rem;
+    padding: 1rem 0rem;
 }
 
 .grid div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 16px;
-    margin-top: 16px;
-    padding: 0px 20px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0rem 1.25rem;
 }
 
 .pageviews-paragraph {
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.125rem;
     font-weight: 800;
     text-transform: uppercase;
 }
 
 .pageviews-paragraph span {
-    margin-right: 6px;
+    margin-right: 0.375rem;
 }
 
 .price {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 800;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     color: var(--clr-Dark-Desaturated-Blue);
     vertical-align: middle;
 }
@@ -134,24 +134,23 @@ h1 {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    height: 8px;
-    width: 290px;
-    border-radius: 10px;
-    background-color: var(--clr-Lighter-Grayish-Blue);
+    height: 0.5rem;
+    width: 18.125rem;
+    border-radius: 0.625rem;
     cursor: pointer;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--clr-Lighter-Grayish-Blue);
 }
 
 .slider::-moz-range-progress {
     background-color: var(--clr-Soft-Cyan);
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 
 .slider::-moz-range-thumb {
     appearance: none;
-    height: 36px;
-    width: 36px;
+    height: 2.25rem;
+    width: 2.25rem;
     border-radius: 50%;
     background: var(--clr-Strong-Cyan);
     background-image: url(images/icon-slider.svg);
@@ -160,78 +159,99 @@ h1 {
     outline: none;
     border: none;
     initial-value: 50%;
-    box-shadow: 0px 15px 20px 10px rgba(17, 213, 193, 0.25);
+    box-shadow: 0 1.125rem 2rem 0rem rgb(80, 255, 240);
+    transition: all 0.15s ease-in-out;
 }
 
 .slider::-webkit-slider-thumb {
     appearance: none;
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     background: var(--clr-Strong-Cyan);
     background-image: url(images/icon-slider.svg);
     background-repeat: no-repeat;
     background-position: center;
     transform: translateY(-40%);
-    box-shadow: 0px 15px 20px 10px rgba(17, 213, 193, 0.25);
+    box-shadow: 0 1.125rem 2rem 0rem rgb(80, 255, 240);
+    transition: all 0.15s ease-in-out;
+}
+
+.slider::-webkit-slider-thumb:hover,
+.slider::-moz-range-thumb:hover {
+    background-color: var(--clr-Cyan);
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:active {
+    background-color: rgb(65, 190, 178);
+    cursor: grabbing;
+}
+
+.slider::-moz-range-thumb:active {
+    background-color: rgb(65, 190, 178);
+    cursor: pointer;
 }
 
 .slider::-moz-range-track {
-    height: 8px;
-    border-radius: 10px;
+    height: 0.5rem;
+    border-radius: 0.625rem;
     background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar), transparent 0%);
 }
 
 .slider::-webkit-slider-runnable-track {
-    height: 8px;
-    border-radius: 10px;
+    height: 0.5rem;
+    border-radius: 0.625rem;
     background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar), transparent 0%);
 }
 
 .content {
     background-color: var(--clr-White);
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 21px 68px -17px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 21px 68px -17px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 21px 68px -17px rgba(0, 0, 0, 0.1);
+    border-radius: 0.625rem;
+    -webkit-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
+    -moz-box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
+    box-shadow: 0rem 0.5625rem 0.9375rem 0.625rem rgba(220, 212, 242, 0.17);
 }
 
 .toggle-switch-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
 .toggle-switch {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
 
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    height: 22px;
-    width: 42px;
-    border-radius: 12px;
+    height: 1.375rem;
+    width: 2.625rem;
+    border-radius: 0.75rem;
     background: var(--clr-Light-Grayish-Blue);
-    cursor: grab;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
 }
 
 .toggle-switch::-webkit-slider-thumb {
     appearance: none;
-    height: 20px;
-    width: 20px;
-    border: 3px solid var(--clr-Light-Grayish-Blue);
+    height: 1.25rem;
+    width: 1.25rem;
+    border: 0.1875rem solid var(--clr-Light-Grayish-Blue);
     border-radius: 50%;
     background: var(--clr-White);
     box-shadow: none;
+    transition: all 0.15s ease-in-out;
 }
 
 .toggle-switch::-moz-range-thumb {
-    border: 3px solid var(--clr-Light-Grayish-Blue);
+    border: 0.1875rem solid var(--clr-Light-Grayish-Blue);
     border-radius: 50%;
     background: var(--clr-White);
     box-shadow: none;
+    transition: all 0.15s ease-in-out;
 }
 
 .label-yearly {
@@ -241,28 +261,28 @@ h1 {
 .label-yearly::after {
     content: "-25%";
     position: absolute;
-    right: -44px;
+    right: -2.75rem;
     color: var(--clr-Light-Red);
     background-color: var(--clr-Light-Grayish-Red);
 
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 12px;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.75rem;
 }
 
-.idk {
+.list-btn-container {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--clr-Lighter-Grayish-Blue);
-    padding: 32px 0px;
+    border-top: 0.0625rem solid var(--clr-Lighter-Grayish-Blue);
+    padding: 2rem 0rem;
 }
 
 .ul-container {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
-.idk div {
+.list-btn-container div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,25 +293,24 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 25px;
+    margin-right: 1.5625rem;
 }
 
 ul li {
-    font-size: 12px;
+    font-size: 0.75rem;
     list-style-type: none;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
 }
 
 ul li img {
     display: inline-block;
-    margin-right: 16px;
+    margin-right: 1rem;
 }
 
 .start-my-trial-btn {
-    width: 171px;
-    height: 41px;
-
-    border-radius: 40px;
+    width: 10.6875rem;
+    height: 2.5625rem;
+    border-radius: 2.5rem;
     background-color: var(--clr-Dark-Desaturated-Blue);
     cursor: pointer;
     border: none;
@@ -300,26 +319,41 @@ ul li img {
 a {
     color: var(--clr-Light-Grayish-Blue);
     text-decoration: none;
-    font-size: 12.5px;
+    font-size: 0.7813rem;
+    transition: all 0.15s ease-in-out;
 }
 
-@media screen and (min-width: 600px) {
+.start-my-trial-btn:hover a {
+    color: var(--clr-White);
+}
+
+@media screen and (min-width: 37.5rem) {
     body {
         align-items: center;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 1.75rem;
+    }
+
+    .main-wrapper {
+        min-width: 33.75rem;
+    }
+
+    .pageviews-paragraph {
+        font-size: 0.875rem;
+        letter-spacing: 0.1187rem;
+        margin-left: -0.1875rem;
     }
 
     .header {
-        padding: 0px 0px 0px 0px;
-        height: 146px;
-        margin-bottom: 56px;
+        padding: 0;
+        height: 9.125rem;
+        margin-bottom: 3.5rem;
     }
 
     .Introductory-Paragraph {
-        font-size: 15px;
+        font-size: 0.9375rem;
         max-width: none;
     }
 
@@ -340,57 +374,59 @@ a {
         grid-template-areas:
             "one three"
             "two two";
-        padding: 40px 48px 0px 48px;
-        row-gap: 20px;
+        padding: 2.5rem 3rem 0rem 3rem;
+        row-gap: 1.25rem;
     }
 
     .grid div {
-        padding: 0px 0px 0px 0px;
+        padding: 0;
         margin: 0;
-        margin-bottom: 16px;
-    }
-
-    .main-wrapper {
-        min-width: 540px;
-    }
-
-    .pageviews-paragraph {
-        font-size: 14px;
-        letter-spacing: 1.9px;
-        margin-left: -3px;
+        margin-bottom: 1rem;
     }
 
     .price {
-        font-size: 39px;
-        margin-right: 5px;
+        font-size: 2.4375rem;
+        margin-right: 0.3125rem;
     }
 
     .price-paragraph {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .slider {
-        width: 100%; 
+        width: 100%;
     }
 
     .toggle-switch-container {
         margin: 0;
-        margin: 40px 0px;
+        margin: 2.5rem 0rem;
     }
 
     .toggle-switch {
-        margin: 0px 17px;
+        margin: 0rem 1.0625rem;
     }
 
-    .idk {
+    .toggle-switch:hover {
+        background-color: var(--clr-Cyan);
+    }
+
+    .toggle-switch:hover.toggle-switch::-webkit-slider-thumb {
+        border-color: var(--clr-Cyan);
+    }
+
+    .toggle-switch:hover.toggle-switch::-moz-range-thumb {
+        border-color: var(--clr-Cyan);
+    }
+
+    .list-btn-container {
         flex-direction: row;
         justify-content: space-between;
-        padding: 32px 44px;
+        padding: 2rem 2.75rem;
     }
 
     .label-yearly::after {
         content: "25% discount";
-        right: -88px;
+        right: -5.5rem;
     }
 
     .ul-container {
@@ -399,13 +435,13 @@ a {
 
     ul {
         align-items: stretch;
-        margin: 0px 0px 0px 4px;
+        margin: 0rem 0rem 0rem 0.25rem;
         padding: 0;
     }
 
     ul li {
         margin: 0;
-        margin-bottom: 9px;
+        margin-bottom: 0.5625rem;
     }
 
     li:last-child {
@@ -413,85 +449,27 @@ a {
     }
 
     .main-wrapper {
-        padding-bottom: 72px;
+        padding-bottom: 4.5rem;
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90rem) {
         body {
-            background-size: 100% 449px;
+            background-size: 100% 28.0625rem;
         }
     }
 }
 
+@media screen and (max-width: 20.625rem) {
+
+    .slider {
+        width: 15rem;
+    }
+
+    .toggle-switch-container {
+        justify-content: stretch;
+        margin-left: 0.5rem;
+    }
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-## Colors
-
-### Primary
-
-- Soft Cyan (Full Slider Bar): hsl(174, 77%, 80%)
-- Strong Cyan (Slider Backround): hsl(174, 86%, 45%)
-- Light Grayish Red (Discount Background): hsl(14, 92%, 95%)
-- Light Red (Discount Text): hsl(15, 100%, 70%)
-- Pale Blue (CTA Text): hsl(226, 100%, 87%)
-
-### Neutral
-
-- White (Pricing Component Background): hsl (0, 0%, 100%)
-- Very Pale Blue (Main Background): hsl(230, 100%, 99%)
-- Light Grayish Blue (Empty Slider Bar): hsl(224, 65%, 95%)
-- Light Grayish Blue (Toggle Background): hsl(223, 50%, 87%)
-- Grayish Blue (Text): hsl(225, 20%, 60%)
-- Dark Desaturated Blue (Text & CTA Background): hsl(227, 35%, 25%)
-
-## Typography
-
-### Body Copy
-
-- Font size (Introductory Paragraph): 15px
-
-### Font
-
-- Family: [Manrope](https://fonts.google.com/specimen/Manrope)
-- Weights: 600, 800
-*/

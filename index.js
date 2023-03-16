@@ -4,6 +4,8 @@ const pageViews = document.querySelector("#pageviews");
 const form = document.querySelector("form");
 const price = document.querySelector("#price");
 const toggleSwitch = document.querySelector("#toggle-switch");
+const labelMonthly = document.querySelector('.label-monthly');
+const labelYearly = document.querySelector('.label-yearly');
 
 calculate();
 
@@ -15,7 +17,18 @@ toggleSwitch.addEventListener("input", () => {
     calculate();
 });
 
+labelMonthly.addEventListener('click', ()=>{
+    toggleSwitch.value = '0'
+    calculate();
+})
+
+labelYearly.addEventListener('click', ()=>{
+    toggleSwitch.value = '1'
+    calculate();
+})
+
 slider.addEventListener("input", calculate);
+
 
 function calculate() {
     let sliderPercentage = `${slider.value * 25 - 25}%`;
@@ -55,4 +68,3 @@ function calculate() {
 
 
 
-//let myVar = getComputedStyle(vars)

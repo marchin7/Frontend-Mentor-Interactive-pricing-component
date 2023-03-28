@@ -4,67 +4,70 @@ const pageViews = document.querySelector("#pageviews");
 const form = document.querySelector("form");
 const price = document.querySelector("#price");
 const toggleSwitch = document.querySelector("#toggle-switch");
-const labelMonthly = document.querySelector('.label-monthly');
-const labelYearly = document.querySelector('.label-yearly');
+const labelMonthly = document.querySelector(".label-monthly");
+const labelYearly = document.querySelector(".label-yearly");
+
+let pricePlan = [
+    { pages: "10K", price: 8 },
+    { pages: "50K", price: 12 },
+    { pages: "100K", price: 16 },
+    { pages: "500K", price: 24 },
+    { pages: "1M", price: 36 },
+];
+
+let discountPercent = 25;
 
 calculate();
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    calculate();
 });
 
 toggleSwitch.addEventListener("input", () => {
     calculate();
 });
 
-labelMonthly.addEventListener('click', ()=>{
-    toggleSwitch.value = '0'
+labelMonthly.addEventListener("click", () => {
+    toggleSwitch.value = "0";
     calculate();
-})
+});
 
-labelYearly.addEventListener('click', ()=>{
-    toggleSwitch.value = '1'
+labelYearly.addEventListener("click", () => {
+    toggleSwitch.value = "1";
     calculate();
-})
+});
 
 slider.addEventListener("input", calculate);
 
+function updateProgresBarColor() {
+    let sliderProgres = `${slider.value * 25 - 25}%`;
+    vars.style.setProperty("--progres-bar", sliderProgres);
+}
 
 function calculate() {
-    let sliderPercentage = `${slider.value * 25 - 25}%`;
-    vars.style.setProperty("--progres-bar", sliderPercentage);
+    updateProgresBarColor();
 
-    if (toggleSwitch.value == 0) {
-        if (slider.value == 1) {
-            getResult("10K", "$8.00");
-        } else if (slider.value == 2) {
-            getResult("50K", "$12.00");
-        } else if (slider.value == 3) {
-            getResult("100K", "$16.00");
-        } else if (slider.value == 4) {
-            getResult("500K", "$24.00");
-        } else if (slider.value == 5) {
-            getResult("1M", "$36.00");
+    for (i = 0; i < pricePlan.length; i++) {
+        let index = Number(slider.value) - 1;
+        if (toggleSwitch.value == 0) {
+            renderResult(
+                pricePlan[index].pages,
+                `${pricePlan[index].price.toLocaleString("en-US", { style: "currency", currency: "USD" })}`
+            );
+        } else {
+            renderResult(
+                pricePlan[index].pages,
+                `${(pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent).toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                })}`
+            );
         }
-    } else {
-        if (slider.value == 1  ) {
-            getResult("10K", "$6.00");
-        } else if (slider.value == 2) {
-            getResult("50K", "$9.00");
-        } else if (slider.value == 3) {
-            getResult("100K", "$12.00");
-        } else if (slider.value == 4) {
-            getResult("500K", "$18.00");
-        } else if (slider.value == 5) {
-            getResult("1M", "$27.00");
-        }
-    }
-
-    function getResult(pages, $price) {
-        pageViews.innerHTML = pages;
-        price.innerHTML = $price;
     }
 }
 
-
-
+function renderResult(page, $price) {
+    pageViews.innerText = page;
+    price.innerText = $price;
+}

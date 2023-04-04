@@ -30,23 +30,14 @@ function updateProgresBarColor() {
 function getResult() {
     let index = slider.value - 1;
     if (toggleMonthly.checked) {
-        render(
-            pricePlan[index].pageViews,
-            `${pricePlan[index].price.toLocaleString("en-US", { style: "currency", currency: "USD" })}`
-        );
+        render(pricePlan[index].pageViews, pricePlan[index].price);
     } else {
-        render(
-            pricePlan[index].pageViews,
-            `${(pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-            })}`
-        );
+        render(pricePlan[index].pageViews, pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent);
     }
     updateProgresBarColor();
 }
 
 function render($pages, $price) {
     pageViews.innerText = $pages;
-    price.innerText = $price;
+    price.innerText = $price.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }

@@ -17,9 +17,9 @@ let pricePlan = [
 
 let discountPercent = 25;
 
-calculate();
+//calculate();
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("input", (e) => {
     e.preventDefault();
     calculate();
 });
@@ -38,36 +38,32 @@ labelYearly.addEventListener("click", () => {
     calculate();
 });
 
-slider.addEventListener("input", calculate);
-
 function updateProgresBarColor() {
     let sliderProgres = `${slider.value * 25 - 25}%`;
     vars.style.setProperty("--progres-bar", sliderProgres);
 }
 
-function calculate() {
-    updateProgresBarColor();
+//slider.addEventListener("input", calculate);
 
-    for (i = 0; i < pricePlan.length; i++) {
-        let index = Number(slider.value) - 1;
-        if (toggleSwitch.value == 0) {
-            renderResult(
-                pricePlan[index].pages,
-                `${pricePlan[index].price.toLocaleString("en-US", { style: "currency", currency: "USD" })}`
-            );
-        } else {
-            renderResult(
-                pricePlan[index].pages,
-                `${(pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent).toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "USD",
-                })}`
-            );
-        }
+function calculate() {
+    let index = slider.value - 1;
+    if (toggleSwitch.value == 0) {
+        getResult(
+            pricePlan[index].pages,
+            `${pricePlan[index].price.toLocaleString("en-US", { style: "currency", currency: "USD" })}`
+        );
+    } else {
+        getResult(
+            pricePlan[index].pages,
+            `${(pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent).toLocaleString("en-US", {
+                style: "currency", currency: "USD",
+            })}`
+        );
     }
+    updateProgresBarColor();
 }
 
-function renderResult(page, $price) {
-    pageViews.innerText = page;
+function getResult($pages, $price) {
+    pageViews.innerText = $pages;
     price.innerText = $price;
 }

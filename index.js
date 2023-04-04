@@ -1,11 +1,9 @@
+const form = document.querySelector("form");
 const slider = document.querySelector(".slider");
 const vars = document.querySelector(":root");
 const pageViews = document.querySelector("#pageviews");
-const form = document.querySelector("form");
 const price = document.querySelector("#price");
-const toggleSwitch = document.querySelector("#toggle-switch");
-const labelMonthly = document.querySelector(".label-monthly");
-const labelYearly = document.querySelector(".label-yearly");
+const toggleMonthly = document.querySelector(".input-monthly");
 
 let pricePlan = [
     { pageViews: "10K", price: 8 },
@@ -24,20 +22,6 @@ form.addEventListener("input", (e) => {
     getResult();
 });
 
-toggleSwitch.addEventListener("input", () => {
-    getResult();
-});
-
-labelMonthly.addEventListener("click", () => {
-    toggleSwitch.value = "0";
-    getResult();
-});
-
-labelYearly.addEventListener("click", () => {
-    toggleSwitch.value = "1";
-    getResult();
-});
-
 function updateProgresBarColor() {
     let sliderProgres = `${slider.value * 25 - 25}%`;
     vars.style.setProperty("--progres-bar", sliderProgres);
@@ -45,7 +29,7 @@ function updateProgresBarColor() {
 
 function getResult() {
     let index = slider.value - 1;
-    if (toggleSwitch.value == 0) {
+    if (toggleMonthly.checked) {
         render(
             pricePlan[index].pageViews,
             `${pricePlan[index].price.toLocaleString("en-US", { style: "currency", currency: "USD" })}`

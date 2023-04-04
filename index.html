@@ -27,7 +27,7 @@
           <p class="pageviews-paragraph"><span id="pageviews">100k</span>Pageviews</p> 
         </div>
         <div class="grid-two">
-          <label class="sr-only" for="slider">price range</label>
+          <label class="visually-hidden" for="slider">price range</label>
           <input type="range" name="slider" id="slider" class="slider" value="3" min="1" max="5" step="1">
         </div>
         <div class="grid-three">
@@ -35,9 +35,15 @@
         </div>
       </div>
       <div class="toggle-switch-container">
-        <label class="label-monthly" for="toggle-switch">Monthly Billing</label>
-        <input class="toggle-switch" id="toggle-switch" name="toggle-switch" type="range" value="0" min="0" max="1">
-        <label class="label-yearly" for="toggle-switch">Yearly Billing</label>
+        <fieldset>
+          <legend class="visually-hidden">billing frequency</legend>
+          <div class="toggle">
+            <input class="input-monthly visually-hidden" type="radio" name="radio" id="switch-monthly" checked>
+            <label class="label-monthly" for="switch-monthly">Monthly Billing</label>
+            <input class="input-yearly visually-hidden" type="radio" name="radio" id="switch-yearly">
+            <label class="label-yearly" for="switch-yearly">Yearly Billing</label>
+          </div>
+        </fieldset>
       </div>
       <div class="list-btn-container">
         <div class="ul-container">

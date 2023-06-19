@@ -53,7 +53,7 @@ h6 {
     --clr-Light-Grayish-Blue: rgb(205, 215, 238);
     --clr-Grayish-Blue: rgb(133, 143, 173);
     --clr-Dark-Desaturated-Blue: rgb(41, 51, 86);
-    --progres-bar: 50%;
+    --progres-bar-fill: 50%;
 }
 
 .visually-hidden {
@@ -211,13 +211,13 @@ h1 {
 .slider::-moz-range-track {
     height: 0.5rem;
     border-radius: 0.625rem;
-    background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar), transparent 0%);
+    background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar-fill), transparent 0%);
 }
 
 .slider::-webkit-slider-runnable-track {
     height: 0.5rem;
     border-radius: 0.625rem;
-    background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar), transparent 0%);
+    background-image: linear-gradient(to right, var(--clr-Soft-Cyan) var(--progres-bar-fill), transparent 0%);
 }
 
 .content {

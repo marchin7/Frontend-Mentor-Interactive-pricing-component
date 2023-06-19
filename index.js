@@ -1,16 +1,16 @@
 const form = document.querySelector("form");
 const slider = document.querySelector(".slider");
-const vars = document.querySelector(":root");
+const root = document.querySelector(":root");
 const pageViews = document.querySelector("#pageviews");
 const price = document.querySelector("#price");
 const toggleMonthly = document.querySelector(".input-monthly");
 
 let pricePlan = [
-    { pageViews: "10K", price: 8 },
-    { pageViews: "50K", price: 12 },
-    { pageViews: "100K", price: 16 },
-    { pageViews: "500K", price: 24 },
-    { pageViews: "1M", price: 36 },
+  { pageViews: "10K", price: 8 },
+  { pageViews: "50K", price: 12 },
+  { pageViews: "100K", price: 16 },
+  { pageViews: "500K", price: 24 },
+  { pageViews: "1M", price: 36 },
 ];
 
 let discountPercent = 25;
@@ -18,26 +18,25 @@ let discountPercent = 25;
 getResult();
 
 form.addEventListener("input", (e) => {
-    e.preventDefault();
-    getResult();
+  e.preventDefault();
+  getResult();
+  updateSliderColor();
 });
 
-function updateProgresBarColor() {
-    let sliderProgres = `${slider.value * 25 - 25}%`;
-    vars.style.setProperty("--progres-bar", sliderProgres);
+function render($pages, $price) {
+  pageViews.innerText = $pages;
+  price.innerText = $price.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
 function getResult() {
-    let index = slider.value - 1;
-    if (toggleMonthly.checked) {
-        render(pricePlan[index].pageViews, pricePlan[index].price);
-    } else {
-        render(pricePlan[index].pageViews, pricePlan[index].price - (pricePlan[index].price / 100) * discountPercent);
-    }
-    updateProgresBarColor();
+  toggleMonthly.checked
+    ? render(pricePlan[slider.value - 1].pageViews, pricePlan[slider.value - 1].price)
+    : render(
+        pricePlan[slider.value - 1].pageViews,
+        pricePlan[slider.value - 1].price - (pricePlan[slider.value - 1].price / 100) * discountPercent
+      );
 }
 
-function render($pages, $price) {
-    pageViews.innerText = $pages;
-    price.innerText = $price.toLocaleString("en-US", { style: "currency", currency: "USD" });
+function updateSliderColor() {
+  root.style.setProperty("--progres-bar-fill", `${slider.value * 25 - 25}%`);
 }
